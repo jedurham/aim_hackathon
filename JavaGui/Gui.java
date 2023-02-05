@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 
 public class Gui {
+    static boolean YesNo = false;
     public Gui() throws FileNotFoundException{
         // Getting list of useful AIs
         Scanner aiReader = new Scanner(new File("ai.txt"));
@@ -21,9 +22,28 @@ public class Gui {
         aiReader.close();
 
         // frame setup
-        JFrame frame = new JFrame("Title Here");
+        JFrame frame = new JFrame("Intelleship");
         JPanel root = new JPanel();
         root.setLayout(new BoxLayout(root, BoxLayout.PAGE_AXIS));
+        JPanel innerPanel = new JPanel();
+        innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.LINE_AXIS));
+
+        JPanel otherInnerPanel = new JPanel();
+        otherInnerPanel.setLayout(new BoxLayout(otherInnerPanel, BoxLayout.LINE_AXIS));
+        JLabel maybe = new JLabel("RFID used on SSCC: ");
+        JButton yes = new JButton("yes");
+        JButton no = new JButton("no");
+        JLabel test = new JLabel();
+        JComboBox test2 = new JComboBox<>();
+
+        yes.addActionListener(e -> {
+            test2.removeItem("Observe Event");
+            test2.addItem("Observe Event");
+        });
+
+        no.addActionListener(e -> {
+            test2.removeItem("Observe Event");
+        });
 
         // get information from file and store in arraylist
         Scanner reader = new Scanner(new File("lines.txt"));
@@ -35,6 +55,8 @@ public class Gui {
             for (JLabel jLabel : allLabels) {
                 jLabel.setText(null);
             }
+            test.setText(null);
+            test2.removeAllItems();
 
             // Getting and parsing element string
             String[] tempAi = new String[2];
@@ -50,26 +72,44 @@ public class Gui {
             }
 
             // Displaying information
-            for (int i = 0; i < ai.size(); i++) {
+            int i = 0;
+            for (; i < ai.size(); i++) {
                 for (int j = 0; j < aiNumber.size(); j++){
                     if (ai.get(i) == aiNumber.get(j)){
                         allLabels.get(i).setText(aiDescripion.get(j) + ": " + data.get(i));
                     }
                 }
             }
+
+            String[] events = {"Aggregation Event", "Object Ship Event", "Object Receive Event", "Observe Event"};
+            test.setText("Event Type: ");
+            for (String string : events) {
+                test2.addItem(string);
+            }
+            // if (!YesNo){
+            //     test2.removeItemAt(events.length-1);
+            // }
         });
 
         root.add(capture);
+        otherInnerPanel.add(maybe);
+        otherInnerPanel.add(yes);
+        otherInnerPanel.add(no);
+        root.add(otherInnerPanel);
         // Setting number of labels
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 4; i++){
             allLabels.add(new JLabel());
             root.add(allLabels.get(i));
         }
 
+        innerPanel.add(test);
+        innerPanel.add(test2);
+        root.add(innerPanel);
+
         // frame settings
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().add(root);
-        frame.setSize(500, 900);
+        frame.setSize(500, 300);
         frame.setVisible(true);
     }
 
