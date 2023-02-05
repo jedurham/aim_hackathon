@@ -1,0 +1,121 @@
+
+EPCIS Document 2023-02-04 19:51:24
+EPCIS Workbench: Aggregation Event
+HOME
+DATASETS
+QUERIES
+SERVERS
+IDENTIFIERS
+HELP
+Isaak Nijakowski
+
+    Dataset Info
+    3 Events
+    0 Errors
+    XML
+
+<?xml version="1.0"?>
+<epcis:EPCISDocument xmlns:epcis="urn:epcglobal:epcis:xsd:1" schemaVersion="1.2" creationDate="2023-02-05T00:51:24.533Z">
+−
+<EPCISBody>
+−
+<EventList>
+−
+<AggregationEvent>
+−
+<eventTime>2023-02-04T00:00:00.000-05:00</eventTime>
+<eventTimeZoneOffset>-05:00</eventTimeZoneOffset>
+<parentID>urn:epc:id:sscc:8500203179.0000001</parentID>
+<childEPCs>
+−
+<epc>urn:epc:id:sgtin:0810055939.119.1QH001005</epc>
+<epc>urn:epc:id:sgtin:0810055939.120.1</epc>
+</childEPCs>
+<action>ADD</action>
+<bizStep>urn:epcglobal:cbv:bizstep:packing</bizStep>
+<disposition>urn:epcglobal:cbv:disp:in_progress</disposition>
+<readPoint>
+−
+<id>urn:epc:id:sgln:0850020317.92.0</id>
+</readPoint>
+<bizLocation>
+−
+<id>urn:epc:id:sgln:0850020317.92.0</id>
+</bizLocation>
+</AggregationEvent>
+<ObjectEvent>
+−
+<eventTime>2023-02-05T00:00:00.000-05:00</eventTime>
+<eventTimeZoneOffset>-05:00</eventTimeZoneOffset>
+<epcList>
+−
+<epc>urn:epc:id:sscc:8500203179.0000001</epc>
+</epcList>
+<action>OBSERVE</action>
+<bizStep>urn:epcglobal:cbv:bizstep:shipping</bizStep>
+<disposition>urn:epcglobal:cbv:disp:in_transit</disposition>
+<readPoint>
+−
+<id>urn:epc:id:sgln:0850020317.92.0</id>
+</readPoint>
+<bizTransactionList>
+−
+<bizTransaction type="urn:epcglobal:cbv:btt:po">0810055930012</bizTransaction>
+<bizTransaction type="urn:epcglobal:cbv:btt:desadv">0850020317912</bizTransaction>
+</bizTransactionList>
+<extension>
+−
+<sourceList>
+−
+<source type="urn:epcglobal:cbv:sdt:owning_party">0850020317912</source>
+<source type="urn:epcglobal:cbv:sdt:location">0850020317929</source>
+</sourceList>
+<destinationList>
+−
+<destination type="urn:epcglobal:cbv:sdt:owning_party">0810055930012</destination>
+<destination type="urn:epcglobal:cbv:sdt:location">0810055930026</destination>
+</destinationList>
+</extension>
+</ObjectEvent>
+<ObjectEvent>
+−
+<eventTime>2023-02-06T00:00:00.000-05:00</eventTime>
+<eventTimeZoneOffset>-05:00</eventTimeZoneOffset>
+<epcList>
+−
+<epc>urn:epc:id:sscc:8500203179.0000001</epc>
+</epcList>
+<action>OBSERVE</action>
+<bizStep>urn:epcglobal:cbv:bizstep:receiving</bizStep>
+<disposition>urn:epcglobal:cbv:disp:in_progress</disposition>
+<readPoint>
+−
+<id>urn:epc:id:sgln:0810055930.02.0</id>
+</readPoint>
+<bizLocation>
+−
+<id>urn:epc:id:sgln:0810055930.02.0</id>
+</bizLocation>
+<bizTransactionList>
+−
+<bizTransaction type="urn:epcglobal:cbv:btt:po">0810055930012</bizTransaction>
+<bizTransaction type="urn:epcglobal:cbv:btt:desadv">0850020317912</bizTransaction>
+</bizTransactionList>
+<extension>
+−
+<sourceList>
+−
+<source type="urn:epcglobal:cbv:sdt:owning_party">0850020317912</source>
+<source type="urn:epcglobal:cbv:sdt:location">0850020317929</source>
+</sourceList>
+<destinationList>
+−
+<destination type="urn:epcglobal:cbv:sdt:owning_party">0810055930012</destination>
+<destination type="urn:epcglobal:cbv:sdt:location">0810055930026</destination>
+</destinationList>
+</extension>
+</ObjectEvent>
+</EventList>
+</EPCISBody>
+</epcis:EPCISDocument>
+Copyright GS1 2018-2020  ·  Terms of Use  ·  Privacy Policy
