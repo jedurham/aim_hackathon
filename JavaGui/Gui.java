@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Gui {
     static boolean YesNo = false;
-    public Gui() throws FileNotFoundException{
+
+    public Gui() throws FileNotFoundException {
         // Getting list of useful AIs
         Scanner aiReader = new Scanner(new File("ai.txt"));
         ArrayList<Integer> aiNumber = new ArrayList<>();
@@ -63,6 +63,7 @@ public class Gui {
             String[] partialParseAi = reader.nextLine().split("\\(");
             ArrayList<Integer> ai = new ArrayList<>();
             ArrayList<String> data = new ArrayList<>();
+
             for (String partial : partialParseAi) {
                 if (!partial.equals("")){
                     tempAi = partial.split("\\)");
@@ -72,14 +73,17 @@ public class Gui {
             }
 
             // Displaying information
+            FileManager fileManager = new FileManager();
             int i = 0;
             for (; i < ai.size(); i++) {
                 for (int j = 0; j < aiNumber.size(); j++){
                     if (ai.get(i) == aiNumber.get(j)){
                         allLabels.get(i).setText(aiDescripion.get(j) + ": " + data.get(i));
+                        fileManager.getData().add(aiDescripion.get(j) + ": " + data.get(i));
                     }
                 }
             }
+            fileManager.writeToFile();
 
             String[] events = {"Aggregation Event", "Object Ship Event", "Object Receive Event", "Observe Event"};
             test.setText("Event Type: ");
