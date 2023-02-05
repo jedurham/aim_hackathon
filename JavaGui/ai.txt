@@ -1,0 +1,11 @@
+00,SSCC
+01,GTIN
+10,Batch or Lot Number
+11,Production date
+12,Due date
+13,Packaging date
+15,Best before date
+16,Sell by date
+17,Expiration date
+21,Serial Number
+254,GLN
